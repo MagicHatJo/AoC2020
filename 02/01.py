@@ -8,8 +8,6 @@ total = 0
 
 for line in data:
 	low, high, target, password = re.split('-| |: ', line)
+	total += int(low) <= password.count(target) <= int(high)
 	
-	if int(low) <= password.count(target) <= int(high):
-		total += 1
-
 print(total)
