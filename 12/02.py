@@ -7,42 +7,19 @@ class Ship:
 		self.wp = complex(10, 1)
 
 		self.cmd = {
-			'N': self.north,
-			'S': self.south,
-			'E': self.east,
-			'W': self.west,
-			'L': self.left,
-			'R': self.right,
-			'F': self.forward
+			'N': lambda v: (self.pos, self.wp + (v * (complex(0, 1)))),
+			'S': lambda v: (self.pos, self.wp - (v * (complex(0, 1)))),
+			'E': lambda v: (self.pos, self.wp + v),
+			'W': lambda v: (self.pos, self.wp - v),
+			'L': lambda v: (self.pos, self.wp * (complex(0, 1) ** (v // 90))),
+			'R': lambda v: (self.pos, self.wp * ((-complex(0, 1)) ** (v // 90))),
+			'F': lambda v: (self.pos + (self.wp * v), self.wp)
 		}
 
 	def move(self, data):
 		for line in data:
-			act = line[0]
-			val = int(line[1:])
-			self.cmd[act](val)
+			self.pos, self.wp = self.cmd[line[0]](int(line[1:]))
 		return (self.pos.real, self.pos.imag)
-
-	def north(self, val):
-		self.wp += val * complex(0, 1)
-	
-	def south(self, val):
-		self.wp -= val * complex(0, 1)
-
-	def east(self, val):
-		self.wp += val
-	
-	def west(self, val):
-		self.wp -= val
-
-	def left(self, val):
-		self.wp *= complex(0, 1) ** (val // 90)
-	
-	def right(self, val):
-		self.wp *= (-complex(0, 1)) ** (val // 90)
-
-	def forward(self, val):
-		self.pos += self.wp * val
 
 if __name__ == "__main__":
 	with open("input", 'r') as f:
