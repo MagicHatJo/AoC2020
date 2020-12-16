@@ -1,10 +1,5 @@
 #!/usr/bin/python3
 
-#generate rules
-
-with open("input") as f:
-	data = [line.strip() for line in f]
-
 def generate_graph():
 	graph = {}
 
@@ -26,4 +21,7 @@ def count_individual(node, graph, memo):
 		count += child[0] * memo[child[1]]
 	return count
 
-print(count_individual("shinygold", generate_graph(), {}))
+if __name__ == "__main__":
+	with open("input") as f:
+		data = [line.strip() for line in f]
+		print(count_individual("shinygold", generate_graph(), {}))

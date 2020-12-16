@@ -1,8 +1,5 @@
 #!/usr/bin/python3
 
-with open("input") as f:
-	data = [line.strip() for line in f]
-
 def generate_graph():
 	graph = {}
 
@@ -28,5 +25,8 @@ def count_shiny(graph):
 	
 	return count
 
-print(count_shiny(generate_graph()))
+if __name__ == "__main__":
+	with open("input") as f:
+		data = [line.strip() for line in f]
+		print(count_shiny(generate_graph()))
 

@@ -28,7 +28,6 @@ def execute(data):
 if __name__ == "__main__":
 	with open("input") as f:
 		data = [line.strip().split() for line in f]
-
-	accumulator = 0
-	execute(data)
-	print(accumulator)
+		accumulator = 0
+		execute(data)
+		print(accumulator)

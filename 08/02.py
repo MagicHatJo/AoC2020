@@ -40,9 +40,8 @@ def mutate(data):
 if __name__ == "__main__":
 	with open("input") as f:
 		data = [line.strip().split() for line in f]
-
-	for d in mutate(data):
-		accumulator = 0
-		if execute(d) == len(d):
-			print(accumulator)
-			break
+		for d in mutate(data):
+			accumulator = 0
+			if execute(d) == len(d):
+				print(accumulator)
+				break

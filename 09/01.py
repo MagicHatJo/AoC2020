@@ -22,5 +22,4 @@ def get_invalid(data):
 if __name__ == "__main__":
 	with open("input") as f:
 		data = [int(i) for i in f.readlines()]
-
-	print(get_invalid(data))
+		print(get_invalid(data))

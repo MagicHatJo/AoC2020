@@ -24,6 +24,5 @@ class Ship:
 if __name__ == "__main__":
 	with open("input", 'r') as f:
 		data = f.readlines()
-		ship = Ship()
-		x, y = ship.move(data)
+		x, y = Ship().move(data)
 		print(int(abs(x) + abs(y)))

@@ -34,6 +34,5 @@ def get_contiguous(data, target):
 if __name__ == "__main__":
 	with open("input") as f:
 		data = [int(i) for i in f.readlines()]
-
-	invalid = get_invalid(data)
-	print(get_contiguous(data, invalid))
+		invalid = get_invalid(data)
+		print(get_contiguous(data, invalid))

@@ -1,14 +1,7 @@
 #!/usr/bin/python3
 
-
-
-def find_triple():
-	with open ("input") as f:
-		entries = [int(i) for i in f.readlines()]
-		entries.sort()
-
+def find_triple(entries):
 	size = len(entries)
-
 	for i in range(size - 2):
 		l = i + 1
 		r = size - 1
@@ -20,4 +13,7 @@ def find_triple():
 			else:
 				r -= 1
 
-print(find_triple())
+with open ("input") as f:
+	entries = [int(i) for i in f.readlines()]
+	entries.sort()
+	print(find_triple(entries))
