@@ -66,6 +66,3 @@ if __name__ == "__main__":
 			mine[rule_index["departure time"]] *
 			mine[rule_index["departure date"]]
 		)
-
-		
-		
